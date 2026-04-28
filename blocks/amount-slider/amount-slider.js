@@ -1,8 +1,12 @@
+function formatINR(value) {
+    return new Intl.NumberFormat('en-IN').format(value);
+}
+
 export default function decorate(block) {
-    const min = parseInt(block.dataset.min) || 0;
-    const max = parseInt(block.dataset.max) || 1000000;
-    const step = parseInt(block.dataset.step) || 1000;
-    const value = parseInt(block.dataset.default) || min;
+    const min = parseInt(block.dataset.min, 10) || 0;
+    const max = parseInt(block.dataset.max, 10) || 1000000;
+    const step = parseInt(block.dataset.step, 10) || 1000;
+    const value = parseInt(block.dataset.default, 10) || min;
     const label = block.dataset.label || 'Select loan amount';
 
     block.innerHTML = `
@@ -32,8 +36,4 @@ export default function decorate(block) {
             detail: {value: val}
         }));
     });
-}
-
-function formatINR(value) {
-    return new Intl.NumberFormat('en-IN').format(value);
 }
