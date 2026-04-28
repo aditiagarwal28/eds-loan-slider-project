@@ -22,6 +22,7 @@ import {
   createRadioOrCheckbox,
   createInput,
 } from './util.js';
+import createAmountSlider from './components/amount-slider/amount-slider.js';
 
 export const DELAY_MS = 0;
 let captchaField;
@@ -44,6 +45,10 @@ const createSelect = withFieldWrapper((fd) => {
   createDropdownUsingEnum(fd, select);
   return select;
 });
+
+const createAmountSlider = withFieldWrapper((fd) => {
+  return createAmountSlider(fd);
+})
 
 function createHeading(fd) {
   const wrapper = createFieldWrapper(fd);
@@ -160,6 +165,7 @@ const handleFocusOut = (input) => {
   input.type = 'text';
   input.value = displayValue;
 };
+
 
 function inputDecorator(field, element) {
   const input = element?.querySelector('input,textarea,select');
