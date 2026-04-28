@@ -4931,5 +4931,23 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "title": "Amount Slider",
+    "id": "amount-slider",
+    "plugins": {
+      "xwalk": {
+        "page" : {
+          "resourceType" : "eds/components/amount-slider"
+        }
+      }
+    },
+    "fields": [
+      { "component": "number", "name": "min", "label": "Minimum", "value": 0},
+      { "component": "number", "name": "max", "label": "Maximum", "value": 50000},
+      { "component": "number", "name": "step", "Step": "Minimum", "value": 1000},
+      { "component": "number", "name": "defaultValue", "label": "Default Value", "value": 20000},
+      { "component": "text", "name": "label", "label": "Label", "value": "Select Loan Amount"}
+    ]
   }
 ]
