@@ -1,9 +1,9 @@
 {
   "mappings": [
-    "/content/eds-forms-loan-site/:/",
-    "/content/eds-forms-loan-site/configuration:/.helix/config.json"
+    "/content/eds-loan-slider-project/:/",
+    "/content/eds-loan-slider-project/configuration:/.helix/config.json"
   ],
   "includes": [
-    "/content/eds-forms-site/"
+    "/content/eds-loan-slider-project/"
   ]
 }

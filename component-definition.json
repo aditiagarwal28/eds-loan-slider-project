@@ -684,6 +684,44 @@
               }
             }
           }
+        },
+        {
+          "title": "Amount Slider",
+          "id": "amount-slider",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/fd/components/form/numberinput/v1/numberinput",
+                "template": {
+                  "jcr:title": "Amount Slider",
+                  "fieldType": "number-input",
+                  "fd:viewType": "amount-slider",
+                  "enabled": true,
+                  "visible": true,
+                  "minimum": 0,
+                  "maximum": 1000000,
+                  "step": 1000,
+                  "default": 20000
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Modal",
+          "id": "pan-form-modal",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/fd/components/form/panelcontainer/v1/panelcontainer",
+                "template": {
+                  "fieldType": "panel",
+                  "fd:viewType": "modal",
+                  "visible": false
+                }
+              }
+            }
+          }
         }
       ]
     }

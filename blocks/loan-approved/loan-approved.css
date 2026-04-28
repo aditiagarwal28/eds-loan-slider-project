@@ -1,0 +1,129 @@
+.loan-approved {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 16px;
+    font-family: var(--body-font-family, 'Roboto', sans-serif);
+}
+
+.loan-approved-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgb(0 0 0 / 8%);
+    padding: 48px 40px 40px;
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+}
+
+.loan-approved-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #1473e6;
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 72px;
+    margin: 0 auto 24px;
+}
+
+.loan-approved-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 8px;
+}
+
+.loan-approved-subtitle {
+    font-size: 1rem;
+    color: #4b5563;
+    margin: 0 0 32px;
+}
+
+.loan-approved-amount-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: #f0f7ff;
+    border: 2px solid #1473e6;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+}
+
+.loan-approved-amount-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6b7280;
+}
+
+.loan-approved-amount {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1473e6;
+    letter-spacing: 0.02em;
+}
+
+.loan-approved-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.loan-approved-steps li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    color: #374151;
+    line-height: 1.5;
+}
+
+.loan-approved-steps li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1473e6;
+    margin-top: 6px;
+}
+
+.loan-approved-cta {
+    display: inline-block;
+    padding: 14px 40px;
+    background: #1473e6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.loan-approved-cta:hover {
+    background: #0d66d0;
+    box-shadow: 0 4px 14px rgb(20 115 230 / 35%);
+}
+
+@media (width <= 480px) {
+    .loan-approved-card {
+        padding: 32px 20px 28px;
+        border-radius: 12px;
+    }
+
+    .loan-approved-title {
+        font-size: 1.6rem;
+    }
+
+    .loan-approved-amount {
+        font-size: 1.8rem;
+    }
+}
