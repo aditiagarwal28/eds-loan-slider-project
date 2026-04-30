@@ -216,6 +216,14 @@ export default function createAmountSlider(elementOrFd, fd = {}, container) {
                     createPanPopup(eventTarget, e.target.value);
                 }
             });
+
+            form.addEventListener('submit', () => {
+                if(fieldLoanInput.value > PAN_THRESHOLD) {
+                    createPanPopup(eventTarget, fieldLoanInput.value);
+                } else {
+                    window.location.href = `/content/eds-loan-slider-project/loan-approved.html?amount=${fieldLoanInput.value}`;
+                }
+            });
         }
     });
 
