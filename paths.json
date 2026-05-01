@@ -1,6 +1,7 @@
 {
   "mappings": [
 <<<<<<< HEAD
+<<<<<<< HEAD
     "/content/aem-boilerplate/:/"
   ],
   "includes": [
@@ -12,5 +13,12 @@
     "/content/",
     "/content/dam/"
 >>>>>>> 6975abd (Initial commit)
+=======
+    "/content/eds-forms-loan-site/:/",
+    "/content/eds-forms-loan-site/configuration:/.helix/config.json"
+  ],
+  "includes": [
+    "/content/eds-forms-site/"
+>>>>>>> 7e614b2 (Update paths.json)
   ]
 }
