@@ -11,11 +11,15 @@ import {
 import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain } from './scripts.js';
 
+<<<<<<< HEAD
 let promiseChanges$ = Promise.resolve();
 
 async function applyChanges(event) {
   await promiseChanges$;
 
+=======
+async function applyChanges(event) {
+>>>>>>> 6975abd (Initial commit)
   // redecorate default content and blocks on patches (in the properties rail)
   const { detail } = event;
 
@@ -38,7 +42,10 @@ async function applyChanges(event) {
   if (element) {
     if (element.matches('main')) {
       const newMain = parsedUpdate.querySelector(`[data-aue-resource="${resource}"]`);
+<<<<<<< HEAD
       if (!newMain) return false;
+=======
+>>>>>>> 6975abd (Initial commit)
       newMain.style.display = 'none';
       element.insertAdjacentElement('afterend', newMain);
       decorateMain(newMain);
@@ -47,7 +54,11 @@ async function applyChanges(event) {
       element.remove();
       newMain.style.display = null;
       // eslint-disable-next-line no-use-before-define
+<<<<<<< HEAD
       attachEventListeners(newMain);
+=======
+      attachEventListners(newMain);
+>>>>>>> 6975abd (Initial commit)
       return true;
     }
 
@@ -55,7 +66,13 @@ async function applyChanges(event) {
     if (block) {
       const blockResource = block.getAttribute('data-aue-resource');
       const newBlock = parsedUpdate.querySelector(`[data-aue-resource="${blockResource}"]`);
+<<<<<<< HEAD
       if (newBlock) {
+=======
+      if (block.dataset.aueModel === 'form') {
+        return true;
+      } else if (newBlock) {
+>>>>>>> 6975abd (Initial commit)
         newBlock.style.display = 'none';
         block.insertAdjacentElement('afterend', newBlock);
         decorateButtons(newBlock);
@@ -98,7 +115,11 @@ async function applyChanges(event) {
   return false;
 }
 
+<<<<<<< HEAD
 function attachEventListeners(main) {
+=======
+async function attachEventListners(main) {
+>>>>>>> 6975abd (Initial commit)
   [
     'aue:content-patch',
     'aue:content-update',
@@ -108,6 +129,7 @@ function attachEventListeners(main) {
     'aue:content-copy',
   ].forEach((eventType) => main?.addEventListener(eventType, async (event) => {
     event.stopPropagation();
+<<<<<<< HEAD
     promiseChanges$ = applyChanges(event);
     const applied = await promiseChanges$;
     if (!applied) window.location.reload();
@@ -115,6 +137,16 @@ function attachEventListeners(main) {
 }
 
 attachEventListeners(document.querySelector('main'));
+=======
+    const applied = await applyChanges(event);
+    if (!applied) window.location.reload();
+  }));
+  const module = await import('./form-editor-support.js');
+  module.attachEventListners(main);
+}
+
+attachEventListners(document.querySelector('main'));
+>>>>>>> 6975abd (Initial commit)
 
 // decorate rich text
 // this has to happen after decorateMain(), and everythime decorateBlocks() is called

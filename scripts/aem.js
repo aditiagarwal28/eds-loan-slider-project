@@ -1,5 +1,9 @@
 /*
+<<<<<<< HEAD
  * Copyright 2026 Adobe. All rights reserved.
+=======
+ * Copyright 2025 Adobe. All rights reserved.
+>>>>>>> 6975abd (Initial commit)
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -16,6 +20,7 @@ function sampleRUM(checkpoint, data) {
   const timeShift = () => (window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime);
   try {
     window.hlx = window.hlx || {};
+<<<<<<< HEAD
     if (!window.hlx.rum || !window.hlx.rum.collector) {
       sampleRUM.enhance = () => {};
       const params = new URLSearchParams(window.location.search);
@@ -34,6 +39,17 @@ function sampleRUM(checkpoint, data) {
       const id = (window.hlx.rum && window.hlx.rum.id) || crypto.randomUUID().slice(-9);
       const isSelected = (window.hlx.rum && window.hlx.rum.isSelected)
         || (weight > 0 && Math.random() * weight < 1);
+=======
+    if (!window.hlx.rum) {
+      sampleRUM.enhance = () => {};
+      const param = new URLSearchParams(window.location.search).get('rum');
+      const weight = (param === 'on' && 1)
+        || (window.SAMPLE_PAGEVIEWS_AT_RATE === 'high' && 10)
+        || (window.SAMPLE_PAGEVIEWS_AT_RATE === 'low' && 1000)
+        || 100;
+      const id = Math.random().toString(36).slice(-4);
+      const isSelected = param !== 'off' && Math.random() * weight < 1;
+>>>>>>> 6975abd (Initial commit)
       // eslint-disable-next-line object-curly-newline, max-len
       window.hlx.rum = {
         weight,
@@ -49,6 +65,7 @@ function sampleRUM(checkpoint, data) {
           const errData = { source: 'undefined error' };
           try {
             errData.target = error.toString();
+<<<<<<< HEAD
             if (error.stack) {
               errData.source = error.stack
                 .split('\n')
@@ -58,6 +75,15 @@ function sampleRUM(checkpoint, data) {
                 .replace(/ at /, '@')
                 .trim();
             }
+=======
+            errData.source = error.stack
+              .split('\n')
+              .filter((line) => line.match(/https?:\/\//))
+              .shift()
+              .replace(/at ([^ ]+) \((.+)\)/, '$1@$2')
+              .replace(/ at /, '@')
+              .trim();
+>>>>>>> 6975abd (Initial commit)
           } catch (err) {
             /* error structure was not as expected */
           }
@@ -80,6 +106,7 @@ function sampleRUM(checkpoint, data) {
           sampleRUM('error', errData);
         });
 
+<<<<<<< HEAD
         window.addEventListener('securitypolicyviolation', (e) => {
           if (e.blockedURI.includes('helix-rum-enhancer') && e.disposition === 'enforce') {
             const errData = {
@@ -91,6 +118,9 @@ function sampleRUM(checkpoint, data) {
         });
 
         sampleRUM.baseURL = sampleRUM.baseURL || new URL(window.RUM_BASE || '/', new URL('https://ot.aem.live'));
+=======
+        sampleRUM.baseURL = sampleRUM.baseURL || new URL(window.RUM_BASE || '/', new URL('https://rum.hlx.page'));
+>>>>>>> 6975abd (Initial commit)
         sampleRUM.collectBaseURL = sampleRUM.collectBaseURL || sampleRUM.baseURL;
         sampleRUM.sendPing = (ck, time, pingData = {}) => {
           // eslint-disable-next-line max-len, object-curly-newline
@@ -103,10 +133,17 @@ function sampleRUM(checkpoint, data) {
             ...pingData,
           });
           const urlParams = window.RUM_PARAMS
+<<<<<<< HEAD
             ? new URLSearchParams(window.RUM_PARAMS).toString() || ''
             : '';
           const { href: url, origin } = new URL(
             `.rum/${weight}${urlParams ? `?${urlParams}` : ''}`,
+=======
+            ? `?${new URLSearchParams(window.RUM_PARAMS).toString()}`
+            : '';
+          const { href: url, origin } = new URL(
+            `.rum/${weight}${urlParams}`,
+>>>>>>> 6975abd (Initial commit)
             sampleRUM.collectBaseURL,
           );
           const body = origin === window.location.origin
@@ -389,7 +426,10 @@ function wrapTextNodes(block) {
     'H4',
     'H5',
     'H6',
+<<<<<<< HEAD
     'HR',
+=======
+>>>>>>> 6975abd (Initial commit)
   ];
 
   const wrap = (el) => {
@@ -589,7 +629,11 @@ async function loadBlock(block) {
             }
           } catch (error) {
             // eslint-disable-next-line no-console
+<<<<<<< HEAD
             console.error(`failed to load module for ${blockName}`, error);
+=======
+            console.log(`failed to load module for ${blockName}`, error);
+>>>>>>> 6975abd (Initial commit)
           }
           resolve();
         })();
@@ -597,7 +641,11 @@ async function loadBlock(block) {
       await Promise.all([cssLoaded, decorationComplete]);
     } catch (error) {
       // eslint-disable-next-line no-console
+<<<<<<< HEAD
       console.error(`failed to load block ${blockName}`, error);
+=======
+      console.log(`failed to load block ${blockName}`, error);
+>>>>>>> 6975abd (Initial commit)
     }
     block.dataset.blockStatus = 'loaded';
   }

@@ -7,3 +7,19 @@ helix-importer-ui
 .DS_Store
 *.bak
 .idea
+<<<<<<< HEAD
+=======
+.nyc_output
+
+.env*
+.vscode
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+test/e2e/reports/
+LoginAuth.json
+
+# Skill distribution zip
+create-custom-component.zip
+>>>>>>> 6975abd (Initial commit)
