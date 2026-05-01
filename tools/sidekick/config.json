@@ -1,5 +1,9 @@
 {
-  "project": "AEM XWalk Boilerplate",
-  "editUrlLabel": "AEM Editor",
-  "editUrlPattern": "{{contentSourceUrl}}{{pathname}}?cmd=open"
+  "project": "EDS Loan Slider Project",
+  "host": "main--eds-loan-slider-project--aditiagarwal28.aem.live",
+  "previewHost": "main--eds-loan-slider-project--aditiagarwal28.aem.page",
+  "editUrlPatterns": [
+    "https://author-p153560-e1607906.adobeaemcloud.com/**"
+  ],
+  "plugins": []
 }

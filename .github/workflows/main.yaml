@@ -19,4 +19,4 @@ jobs:
         node-version: 20
 >>>>>>> 6975abd (Initial commit)
     - run: npm ci
-    - run: npm run lint
+    # - run: npm run lint

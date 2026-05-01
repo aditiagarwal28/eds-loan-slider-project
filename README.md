@@ -3,6 +3,7 @@ Your project's description...
 
 ## Environments
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Preview: https://main--{repo}--{owner}.aem.page/
 - Live: https://main--{repo}--{owner}.aem.live/
 
@@ -19,6 +20,10 @@ Furthremore, we encourage you to watch the recordings of any of our previous pre
 =======
 - Preview: https://main--aem-boilerplate-forms--adobe-rnd.aem.page/
 - Live: https://main--aem-boilerplate-forms--adobe-rnd.aem.live/
+=======
+Preview: https://main--eds-loan-slider-project--aditiagarwal28.aem.page/
+Live:    https://main--eds-loan-slider-project--aditiagarwal28.aem.live/
+>>>>>>> 1043e12 (Created a loan amount slider)
 
 ## Documentation
 Before using the aem-boilerplate, we recommand you to go through the documentation on [www.aem.live](https://www.aem.live/docs/) and [experienceleague.adobe.com](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/edge-delivery/wysiwyg-authoring/authoring), more specifically:
@@ -113,4 +118,7 @@ The AEM Forms runtime core libraries (`@aemforms/af-core` and `@aemforms/af-form
 
 5. **Verify the Update**
    - Check that files in `blocks/form/rules/model/` have been updated
+<<<<<<< HEAD
 >>>>>>> 6975abd (Initial commit)
+=======
+>>>>>>> 1043e12 (Created a loan amount slider)

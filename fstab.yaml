@@ -1,4 +1,5 @@
 mountpoints:
+<<<<<<< HEAD
   /:
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -11,3 +12,6 @@ mountpoints:
 >>>>>>> 2d6b27b (Update fstab.yaml)
     type: "markup"
     suffix: ".html"
+=======
+  /: https://author-p153560-e1607906.adobeaemcloud.com/bin/franklin.delivery/aditiagarwal28/eds-loan-slider-project/main
+>>>>>>> 1043e12 (Created a loan amount slider)

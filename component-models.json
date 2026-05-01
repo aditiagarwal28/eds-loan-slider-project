@@ -4934,5 +4934,107 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "amount-slider",
+    "fields": [
+      {
+        "component": "tab",
+        "label": "Basic",
+        "name": "basic"
+      },
+      {
+        "component": "text",
+        "name": "name",
+        "label": "Name",
+        "valueType": "string",
+        "required": true,
+        "valueFormat": "regexp",
+        "validation": {
+          "regExp": "^[^$].*",
+          "customErrorMsg": "Name cannot start with $"
+        }
+      },
+      {
+        "component": "text",
+        "name": "jcr:title",
+        "label": "Label",
+        "valueType": "string",
+        "value": "Select Loan Amount"
+      },
+      {
+        "component": "boolean",
+        "name": "visible",
+        "label": "Show Component",
+        "valueType": "boolean",
+        "value": true
+      },
+      {
+        "component": "boolean",
+        "name": "enabled",
+        "label": "Enable Component",
+        "valueType": "boolean",
+        "value": true
+      },
+      {
+        "component": "select",
+        "name": "colspan",
+        "label": "Column Span",
+        "valueType": "string",
+        "value": "12",
+        "options": [
+          { "name": "1 column",  "value": "1" },
+          { "name": "2 column",  "value": "2" },
+          { "name": "3 column",  "value": "3" },
+          { "name": "4 column",  "value": "4" },
+          { "name": "6 column",  "value": "6" },
+          { "name": "12 column", "value": "12" }
+        ]
+      },
+      {
+        "component": "tab",
+        "label": "Slider Settings",
+        "name": "slider"
+      },
+      {
+        "component": "number",
+        "name": "minimum",
+        "label": "Minimum Amount",
+        "valueType": "number",
+        "value": 0,
+        "description": "Minimum value of the loan amount slider"
+      },
+      {
+        "component": "number",
+        "name": "maximum",
+        "label": "Maximum Amount",
+        "valueType": "number",
+        "value": 1000000,
+        "description": "Maximum value of the loan amount slider"
+      },
+      {
+        "component": "number",
+        "name": "step",
+        "label": "Step",
+        "valueType": "number",
+        "value": 1000,
+        "description": "Increment step for the slider"
+      },
+      {
+        "component": "number",
+        "name": "default",
+        "label": "Default Value",
+        "valueType": "number",
+        "value": 20000,
+        "description": "Initial value shown on the slider"
+      },
+      {
+        "component": "text",
+        "name": "panFormPath",
+        "label": "Pan Card Form Path",
+        "value": "/content/forms/af/AditiTest/pan-details",
+        "description": "Path of the pan overlay form"
+      }
+    ]
   }
 ]

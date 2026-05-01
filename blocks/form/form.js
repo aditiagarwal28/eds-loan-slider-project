@@ -22,6 +22,8 @@ import {
   createRadioOrCheckbox,
   createInput,
 } from './util.js';
+import createAmountSlider from './components/amount-slider/amount-slider.js';
+import loanApprovedBlock from '../loan-approved/loan-approved.js';
 
 export const DELAY_MS = 0;
 let captchaField;
@@ -44,6 +46,14 @@ const createSelect = withFieldWrapper((fd) => {
   createDropdownUsingEnum(fd, select);
   return select;
 });
+
+const createAmountRange = withFieldWrapper((fd) => {
+  return createAmountSlider(fd);
+});
+
+const loanApproved = withFieldWrapper((fd) => {
+  return loanApprovedBlock(fd);
+})
 
 function createHeading(fd) {
   const wrapper = createFieldWrapper(fd);
@@ -140,6 +150,8 @@ const fieldRenderers = {
   'checkbox-group': createRadioOrCheckboxGroup,
   image: createImage,
   heading: createHeading,
+  'amount-slider': createAmountRange,
+  'loan-approved': loanApproved
 };
 
 function colSpanDecorator(field, element) {
@@ -160,6 +172,7 @@ const handleFocusOut = (input) => {
   input.type = 'text';
   input.value = displayValue;
 };
+
 
 function inputDecorator(field, element) {
   const input = element?.querySelector('input,textarea,select');
@@ -257,8 +270,9 @@ function decoratePanelContainer(panelDefinition, panelContainer) {
 }
 
 function renderField(fd) {
+  const viewType = fd?.['fd:viewType'];
   const fieldType = fd?.fieldType?.replace('-input', '') ?? 'text';
-  const renderer = fieldRenderers[fieldType];
+  const renderer = fieldRenderers[viewType] || fieldRenderers[fieldType];
   let field;
   if (typeof renderer === 'function') {
     field = renderer(fd);
@@ -270,7 +284,7 @@ function renderField(fd) {
     field.append(createHelpText(fd));
     field.dataset.description = fd.description; // In case overriden by error message
   }
-  if (fd.fieldType !== 'radio-group' && fd.fieldType !== 'checkbox-group' && fd.fieldType !== 'captcha') {
+  if (fd.fieldType !== 'radio-group' && fd.fieldType !== 'checkbox-group' && fd.fieldType !== 'captcha' && viewType !== 'amount-slider' && fd.fieldType !== 'amount-slider') {
     inputDecorator(fd, field);
   }
   return field;

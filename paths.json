@@ -2,6 +2,7 @@
   "mappings": [
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "/content/aem-boilerplate/:/"
   ],
   "includes": [
@@ -20,5 +21,12 @@
   "includes": [
     "/content/eds-forms-site/"
 >>>>>>> 7e614b2 (Update paths.json)
+=======
+    "/content/eds-loan-slider-project/:/",
+    "/content/eds-loan-slider-project/configuration:/.helix/config.json"
+  ],
+  "includes": [
+    "/content/eds-loan-slider-project/"
+>>>>>>> 1043e12 (Created a loan amount slider)
   ]
 }

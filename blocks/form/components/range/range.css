@@ -49,3 +49,189 @@ main .form .range-widget-wrapper.decorated input[type="range"]:focus {
 .range-widget-wrapper.decorated .range-max {
     float: right;
 }
+
+
+/* ── PAN Details Popup ─────────────────────────────────────── */
+
+/* Overlay / backdrop */
+.pan-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 55%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.pan-overlay.pan-overlay--visible {
+  opacity: 1;
+}
+
+/* Modal card */
+.pan-popup {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgb(0 0 0 / 18%);
+  padding: 36px 32px 32px;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.25s ease;
+  font-family: var(--body-font-family, 'Roboto', sans-serif);
+}
+
+.pan-overlay.pan-overlay--visible .pan-popup {
+  transform: translateY(0) scale(1);
+}
+
+/* Close button */
+.pan-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.pan-popup-close:hover {
+  color: #1a1a2e;
+  background: #f3f4f6;
+}
+
+/* Icon */
+.pan-popup-icon {
+  font-size: 2.4rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Title */
+.pan-popup-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-align: center;
+  margin: 0 0 8px;
+}
+
+/* Description */
+.pan-popup-desc {
+  font-size: 0.9rem;
+  color: #4b5563;
+  text-align: center;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.pan-popup-desc strong {
+  color: #1473e6;
+}
+
+/* Form layout */
+.pan-popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Field group */
+.pan-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pan-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Text inputs */
+.pan-input,
+.pan-name-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1a1a2e;
+  background: #f9fafb;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  box-sizing: border-box;
+  letter-spacing: 0.05em;
+}
+
+.pan-input:focus,
+.pan-name-input:focus {
+  border-color: #1473e6;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgb(20 115 230 / 15%);
+}
+
+/* Error state */
+.pan-input.pan-input--error,
+.pan-name-input.pan-input--error {
+  border-color: #dc2626;
+  background: #fff5f5;
+}
+
+.pan-input.pan-input--error:focus,
+.pan-name-input.pan-input--error:focus {
+  box-shadow: 0 0 0 3px rgb(220 38 38 / 15%);
+}
+
+/* Error message */
+.pan-error,
+.pan-name-error {
+  font-size: 0.78rem;
+  color: #dc2626;
+  min-height: 16px;
+}
+
+/* Submit button */
+.pan-submit-btn {
+  margin-top: 4px;
+  padding: 12px;
+  background: #1473e6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  letter-spacing: 0.02em;
+}
+
+.pan-submit-btn:hover {
+  background: #0d66d0;
+  box-shadow: 0 4px 14px rgb(20 115 230 / 35%);
+}
+
+.pan-submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive popup */
+@media (width <= 480px) {
+  .pan-popup {
+    padding: 28px 20px 24px;
+    border-radius: 12px;
+  }
+}
